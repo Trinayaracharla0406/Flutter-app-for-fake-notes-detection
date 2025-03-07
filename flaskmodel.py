@@ -3,6 +3,7 @@ import torch.nn as nn
 import torchvision.models as models
 from torchvision import transforms
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from PIL import Image
 import numpy as np
 import cv2
@@ -16,6 +17,7 @@ from sklearn.model_selection import train_test_split
 import os
 
 app = Flask(__name__)
+CORS(app)
 
 # Load and preprocess the dataset for authenticity detection
 data = pd.read_csv('banknote_authentication.txt', header=None)
